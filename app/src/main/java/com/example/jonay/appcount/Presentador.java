@@ -1,7 +1,7 @@
 package com.example.jonay.appcount;
 
 /**
- * Created by Marta on 28/01/2017.
+ * Created by Jcruz on 28/01/2017.
  */
 
 public class Presentador implements I_Presentador{
