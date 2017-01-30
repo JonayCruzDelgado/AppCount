@@ -1,4 +1,4 @@
-package com.example.marta.appcount;
+package com.example.jonay.appcount;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Vista extends Activity {
+public class Vista extends Activity implements I_Vista{
 
     private TextView display;
     private Button botonAdd;
     private Button botonSub;
-    private Presentador miPresentador;
+    private I_Presentador miPresentador;
 
 
     class ButtonAdd implements View.OnClickListener {
@@ -29,8 +29,9 @@ public class Vista extends Activity {
             miPresentador.actulizarBoton();
         }
     }
+    @Override
     public void actualizarBoton(Integer contador){
-        display.setText(contador);
+        display.setText(contador.toString());
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

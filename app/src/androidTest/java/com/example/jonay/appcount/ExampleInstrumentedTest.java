@@ -1,4 +1,4 @@
-package com.example.marta.appcount;
+package com.example.jonay.appcount;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

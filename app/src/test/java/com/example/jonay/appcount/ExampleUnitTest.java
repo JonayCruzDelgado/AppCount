@@ -1,4 +1,4 @@
-package com.example.marta.appcount;
+package com.example.jonay.appcount;
 
 import org.junit.Test;
 
