@@ -6,36 +6,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class Vista extends Activity {
 
     private TextView display;
     private Button botonAdd;
     private Button botonSub;
-    private Integer contador;
+    private Presentador miPresentador;
 
 
     class ButtonAdd implements View.OnClickListener {
         @Override
         public void onClick(View view){
-            contador++;
-            display.setText(contador.toString());
+            miPresentador.aumentar();
+            miPresentador.actulizarBoton();
         }
     }
 
     class ButtonSub implements View.OnClickListener {
         @Override
         public void onClick(View view){
-            contador--;
-            display.setText(contador.toString());
+            miPresentador.disminuir();
+            miPresentador.actulizarBoton();
         }
     }
-
+    public void actualizarBoton(Integer contador){
+        display.setText(contador);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        contador =0;
+        miPresentador = new Presentador();
+        miPresentador.setMiVista(this);
 
         botonAdd =(Button)findViewById(R.id.button1);
         botonSub =(Button)findViewById(R.id.button2);
@@ -43,6 +45,7 @@ public class MainActivity extends Activity {
 
         botonAdd.setOnClickListener(new ButtonAdd());
         botonSub.setOnClickListener(new ButtonSub());
+        miPresentador.actulizarBoton();
     }
 
 }
