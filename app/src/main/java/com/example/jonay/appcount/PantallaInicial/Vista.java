@@ -1,4 +1,4 @@
-package com.example.jonay.appcount;
+package com.example.jonay.appcount.pantallaInicial;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,12 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Vista extends Activity implements I_Vista{
+import com.example.jonay.appcount.R;
+import com.example.jonay.appcount.mediador.AppMediador;
+
+public class Vista extends Activity implements I_Vista {
 
     private TextView display;
     private Button botonAdd;
     private Button botonSub;
     private I_Presentador miPresentador;
+    private AppMediador appMediador;
 
 
     class ButtonAdd implements View.OnClickListener {
@@ -37,8 +41,9 @@ public class Vista extends Activity implements I_Vista{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        miPresentador = new Presentador();
-        miPresentador.setMiVista(this);
+        appMediador = (AppMediador) this.getApplication();
+        appMediador.setVista(this);
+        miPresentador = appMediador.getPresentador();
 
         botonAdd =(Button)findViewById(R.id.button1);
         botonSub =(Button)findViewById(R.id.button2);

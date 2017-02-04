@@ -1,10 +1,10 @@
-package com.example.jonay.appcount;
+package com.example.jonay.appcount.pantallaInicial;
 
 /**
  * Created by Jcruz on 28/01/2017.
  */
 
-public class Modelo implements I_Modelo{
+public class Modelo implements I_Modelo {
    private Integer contador;
 
     public Modelo() {
